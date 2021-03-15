@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap 4, from LayoutIt!</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+</head>
+<body style="margin: 5%;">
+
+<div class="container-fluid" style="background-color: #DCD1D1; padding: 5%">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="page-header">
+                <h2>
+                    Documentação API - KPMG
+                </h2>
+                <h5>Autor: <a href="https://github.com/ravellys"> Lucas Ravellys </a></h5>
+            </div>
+            <div class="jumbotron">
+                <div>
+                    Essa API trata-se de teste realizado pelo grupo KPMG. O objetivo da a API é filtrar os valores
+                    médios de carros do <a href="https://kpmg-project.s3.amazonaws.com/dataset.csv">dataset</a>, baseado
+                    no fabricante e na cidade. Para tanto, foi utilizada uma
+                    estrutura serveless com os componentes da AWS: Lambda, API Gateway e S3.
+                </div>
+
+                <ol>
+                    <li>
+                        <p>
+                            Para o AWS Lambda, foi utilizada a seguinte função Lambda:
+                            <a href="https://kpmg-project.s3.amazonaws.com/lamda/lambda_function.py">
+                                https://kpmg-project.s3.amazonaws.com/lamda/lambda_function.py
+                            </a>
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>o Bucket S3 utilizado está disponível em:
+                            <a href="http://kpmg-project.s3-website-us-east-1.amazonaws.com">http://kpmg-project.s3-website-us-east-1.amazonaws.com</a>
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>e os endpoints criados pelo API Gateway são:</p>
+                        <ul>
+                            <li>
+                                <a href="https://vz9x01sysl.execute-api.us-east-1.amazonaws.com/dev/valoresmedioscarros/cidades">https://vz9x01sysl.execute-api.us-east-1.amazonaws.com/dev/valoresmedioscarros/cidades</a>
+                            </li>
+                            <li>
+                                <a href="https://vz9x01sysl.execute-api.us-east-1.amazonaws.com/dev/valoresmedioscarros/fabricantes">https://vz9x01sysl.execute-api.us-east-1.amazonaws.com/dev/valoresmedioscarros/fabricantes</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Para a segurança, foi utilizada a autenticação por <b>x-api-key</b></p>
+                        <p> Podendo ser a utilizada a seguinte chave para testes <i>DlgZB1BANU4QMRqwETzb7oqIhbpPYlm9eCaQ4qc0</i>.</p>
+
+                    </li>
+                </ol>
+            </div>
+            <h3>
+                Exemplo de uso
+            </h3>
+            <p style="text-align: justify-all">
+                Para a utilização da API, efetue o download da documentação <a target="_blank"
+                                                                               href="https://kpmg-project.s3.amazonaws.com/documentacao.json">
+                clicando aqui </a>. Após o download importe o
+                arquivo documentacao.json na sua interface de teste (neste exemplo será utilizado o Postman), e siga os passos a seguir.
+                Também é possível realizar os testes implementando diretamente no postman as urls
+                diponibilizadas anteriormente utilizando o método GET.
+            </p>
+            <ol>
+                <li>
+                    <h4>
+                        Inicialmente será necessário inserir a x-api-key no headers da solicitação <b>GET</b>:
+                    </h4>
+                    <img src="https://kpmg-project.s3.amazonaws.com/images/x-api-key.png">
+                </li>
+                <li>
+                    <h4>
+                        Na solicitação de filtro por fabricante, não será necessário inserir dados nos parametros, e a
+                        solicitação se resume a:
+                    </h4>
+                    <img style="width: 800px; height: auto;"
+                         src="https://kpmg-project.s3.amazonaws.com/images/fabricante_all.png">
+
+                </li>
+                <li>
+                    <h4>
+                        Observe que na solicitação anterior foram recebido todos os dados,
+                        para filtrar apenas um fabricante insira no nome desse fabricante com a <b>chave fabricante</b>:
+                    </h4>
+                    <img style="width: 800px; height: auto;"
+                         src="https://kpmg-project.s3.amazonaws.com/images/fabricante_A.png">
+
+                </li>
+                <li>
+                    <h4>
+                        Caso nome inserido seja inválido, o seguinte erro será informado:
+                    </h4>
+                    <img style="width: 800px; height: auto;"
+                         src="https://kpmg-project.s3.amazonaws.com/images/fabricante_invalido.png">
+                </li>
+                <li>
+                    <h4>
+                        De modo análogo, para o filtro de cidades, podemos repetir os mesmos passos anteriores :
+                    </h4>
+                    <img style="width: 800px; height: auto;"
+                         src="https://kpmg-project.s3.amazonaws.com/images/cidade_all.png">
+                    <img style="width: 800px; height: auto;"
+                         src="https://kpmg-project.s3.amazonaws.com/images/cidade_C01.png">
+                    <img style="width: 800px; height: auto;"
+                         src="https://kpmg-project.s3.amazonaws.com/images/cidade_invalida.png">
+                </li>
+
+
+            </ol>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
